@@ -25,7 +25,7 @@ def is_a_ad():
     :return:
     """
     element = Element()
-    ad_tips = ['去玩一下', '去体验', '立即下载']
+    ad_tips = ['去玩一下', '去体验', '立即下载', '广告']
 
     find_result = False
 

@@ -128,15 +128,15 @@ def analysis_face(face_list):
 
                 if 18 <= age <= 30 and beauty >= 70:
                     # 满足条件，可以进行点赞、评论了
-                    print('颜值为:%d,及格，满足条件！' % beauty)
+                    print('颜值为:{},及格，满足条件！'.format(beauty))
                     find_belle = True
                     break
                 else:
-                    print('颜值为:%d,不及格，继续~' % beauty)
+                    print('颜值为:{},不及格，继续~'.format(beauty))
                     continue
             else:
-                print('性别为男,继续~')
-                continue
+                print('性别为男,跳出循环~')
+                break
     else:
         print('图片中没有发现人脸.')
 

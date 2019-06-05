@@ -38,14 +38,14 @@ def save_video_met():
     """
     :return:
     """
-    # 分享
-    os.system("adb shell input tap 1000 1500")
+    # 分享 根据手机 设置不同的 x y 坐标
+    os.system("adb shell input tap 1009 1362")
     time.sleep(0.05)
 
-    # 保存到本地
-    os.system("adb shell input tap 350 1700")
+    # 保存到本地 根据手机 设置不同的 x y 坐标
+    os.system("adb shell input tap 366 1581")
 
-    time.sleep(1)
+    time.sleep(0.2)
 
     # 等待视频保存成功
     wait_for_download_finished(poco)
@@ -65,11 +65,14 @@ if __name__ == '__main__':
     time.sleep(5)
 
     while True:
-        time.sleep(3)
+        time.sleep(2)
         if is_a_ad():
             print('这是一条广告，过滤~')
             play_next_video()
-            time.sleep(3)
+            time.sleep(2)
+        # 判断存储文件夹是否存在
+        if not os.path.exists('./images'):
+            os.mkdir('./images')
 
         # 开始识别的时间
         recognize_time_start = datetime.now()
@@ -82,7 +85,7 @@ if __name__ == '__main__':
             if is_a_ad():
                 print('这是一条广告，过滤~')
                 play_next_video()
-                time.sleep(3)
+                time.sleep(2)
             # 获取截图
             print('开始第{}次截图'.format(recognize_count))
 
@@ -118,7 +121,7 @@ if __name__ == '__main__':
 
         # 播放下一条视频
         print('==' * 30)
-        time.sleep(2)
+        time.sleep(1)
         print('准备播放下一个视频~')
         play_next_video()
-        time.sleep(2)
+        time.sleep(1.5)
