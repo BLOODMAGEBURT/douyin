@@ -29,7 +29,7 @@ package_name = 'com.ss.android.ugc.aweme'
 activity_name = 'com.ss.android.ugc.aweme.splash.SplashActivity'
 
 # 一条视频识别的最长时间
-RECOGNITE_TOTAL_TIME = 10
+RECOGNITE_TOTAL_TIME = 5
 
 poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
 
@@ -65,11 +65,12 @@ if __name__ == '__main__':
     time.sleep(5)
 
     while True:
-        time.sleep(2)
-        if is_a_ad():
-            print('这是一条广告，过滤~')
-            play_next_video()
-            time.sleep(2)
+        time.sleep(0.5)
+        print('睡眠结束')
+        # if is_a_ad():
+        #     print('这是一条广告，过滤~')
+        #     play_next_video()
+        #     time.sleep(2)
         # 判断存储文件夹是否存在
         if not os.path.exists('./images'):
             os.mkdir('./images')
@@ -82,12 +83,12 @@ if __name__ == '__main__':
 
         # 循环地去刷抖音
         while True:
-            if is_a_ad():
-                print('这是一条广告，过滤~')
-                play_next_video()
-                time.sleep(2)
+            # if is_a_ad():
+            #             #     print('这是一条广告，过滤~')
+            #             #     play_next_video()
+            #             #     time.sleep(0.5)
             # 获取截图
-            print('开始第{}次截图'.format(recognize_count))
+            print('开始第{}次截图,开始识别'.format(recognize_count))
 
             # 截取屏幕有用的区域，过滤视频作者的头像、BGM作者的头像
             screen_name = get_screen_shot_part_img('images/temp{}.jpg'.format(recognize_count))
@@ -104,7 +105,7 @@ if __name__ == '__main__':
             if recognize_result:
                 save_video_met()
                 handle_count += 1
-                print('识别到一个美女，继续下一个视频~')
+                print('识别到一个美女，继续下一个视频,共下载{}个~'.format(handle_count))
                 break
             else:
                 if (recognize_time_end - recognize_time_start).seconds < RECOGNITE_TOTAL_TIME:
@@ -121,7 +122,8 @@ if __name__ == '__main__':
 
         # 播放下一条视频
         print('==' * 30)
-        time.sleep(1)
+        time.sleep(0.5)
         print('准备播放下一个视频~')
         play_next_video()
-        time.sleep(1.5)
+        print('开始睡眠')
+        time.sleep(0.5)
