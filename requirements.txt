@@ -10,7 +10,7 @@ MarkupSafe==1.1.1
 mss==4.0.3
 numpy==1.16.4
 opencv-contrib-python==3.4.2.17
-Pillow==6.0.0
+Pillow==8.1.1
 pocoui==1.0.76
 pypiwin32==223
 pywin32==224
