@@ -8,7 +8,7 @@ idna==2.8
 Jinja2==2.10.1
 MarkupSafe==1.1.1
 mss==4.0.3
-numpy==1.16.4
+numpy==1.22.0
 opencv-contrib-python==3.4.2.17
 Pillow==6.0.0
 pocoui==1.0.76
